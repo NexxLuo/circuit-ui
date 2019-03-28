@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 
 import { svgKilo } from '../../styles/style-helpers';
 import SvgButton from '../SvgButton';
-import Icon from './close-icon.svg';
+import { ReactComponent as Icon } from './close-icon.svg';
 
 const SvgCloseButton = styled(SvgButton)(
   ({ theme }) => css`
