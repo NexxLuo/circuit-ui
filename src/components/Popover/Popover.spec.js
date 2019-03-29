@@ -71,7 +71,10 @@ describe('Popover', () => {
         onReferenceClickClose={onReferenceClickClose}
       />
     );
-    actual.find('ReferenceWrapper').simulate('click');
+    actual
+      .find('Styled(div)')
+      .first()
+      .simulate('click');
     expect(onReferenceClickClose).toHaveBeenCalledTimes(1);
   });
 

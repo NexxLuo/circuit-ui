@@ -1,12 +1,9 @@
-import { babel } from 'docz-plugin-babel6';
 import { circuit as theme } from './themes';
 
 export default {
   title: 'Circuit UI',
   dest: './dist',
   base: '/',
-  plugins: [babel()],
-  modifyBabelRc: config => config,
   indexHtml: 'docs/index.html',
   hashRouter: true,
   themeConfig: {
@@ -53,11 +50,16 @@ export default {
       test: /\.svg$/,
       use: [
         {
-          loader: 'react-svg-loader',
+          loader: '@svgr/webpack',
           options: {
-            es5: true
+            svgoConfig: {
+              plugins: {
+                removeViewBox: false
+              }
+            }
           }
-        }
+        },
+        'url-loader'
       ]
     };
 
